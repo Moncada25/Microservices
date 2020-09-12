@@ -1,7 +1,7 @@
-package com.tcs.training.spring.service;
+package com.tcs.training.spring.services;
 
-import com.tcs.training.spring.model.Client;
-import com.tcs.training.spring.repository.ClientRepository;
+import com.tcs.training.spring.models.Client;
+import com.tcs.training.spring.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +19,10 @@ public class ClientServiceImpl implements ClientService {
   @Override
   public Client searchClientByLastName(String lastName) {
     return repository.searchClientByLastName(lastName);
+  }
+
+  @Override
+  public Client createClient(Client client) {
+    return repository.save(client);
   }
 }
