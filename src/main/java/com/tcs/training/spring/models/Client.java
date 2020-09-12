@@ -1,11 +1,12 @@
-package com.tcs.training.spring.model;
+package com.tcs.training.spring.models;
 
-import static com.tcs.training.spring.Constants.CLIENT_COLUMN_DATE_OF_BIRTH;
-import static com.tcs.training.spring.Constants.CLIENT_COLUMN_DOCUMENT;
-import static com.tcs.training.spring.Constants.CLIENT_COLUMN_EMAIL;
-import static com.tcs.training.spring.Constants.CLIENT_COLUMN_LASTNAME;
-import static com.tcs.training.spring.Constants.CLIENT_COLUMN_NAME;
-import static com.tcs.training.spring.Constants.CLIENT_TABLE_NAME;
+import static com.tcs.training.spring.utils.DatabaseConstants.CLIENT_COLUMN_DATE_OF_BIRTH;
+import static com.tcs.training.spring.utils.DatabaseConstants.CLIENT_COLUMN_DOCUMENT;
+import static com.tcs.training.spring.utils.DatabaseConstants.CLIENT_COLUMN_EMAIL;
+import static com.tcs.training.spring.utils.DatabaseConstants.CLIENT_COLUMN_LASTNAME;
+import static com.tcs.training.spring.utils.DatabaseConstants.CLIENT_COLUMN_NAME;
+import static com.tcs.training.spring.utils.DatabaseConstants.CLIENT_TABLE_NAME;
+import static com.tcs.training.spring.utils.MessageConstants.ERROR_EMAIL;
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -13,6 +14,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = CLIENT_TABLE_NAME)
 public class Client {
@@ -21,12 +25,17 @@ public class Client {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
+  @NotBlank
+  @NotNull
   @Column(name = CLIENT_COLUMN_NAME)
   private String name;
 
   @Column(name = CLIENT_COLUMN_LASTNAME)
   private String lastName;
 
+  @NotBlank
+  @NotNull
+  @Email(message = ERROR_EMAIL)
   @Column(name = CLIENT_COLUMN_EMAIL)
   private String email;
 

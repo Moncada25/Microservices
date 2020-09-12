@@ -1,8 +1,8 @@
-package com.tcs.training.spring.repository;
+package com.tcs.training.spring.repositories;
 
-import static com.tcs.training.spring.Constants.CLIENT_TABLE_NAME;
+import static com.tcs.training.spring.utils.DatabaseConstants.CLIENT_TABLE_NAME;
 
-import com.tcs.training.spring.model.Client;
+import com.tcs.training.spring.models.Client;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

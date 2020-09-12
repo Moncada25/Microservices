@@ -1,6 +1,6 @@
-package com.tcs.training.spring;
+package com.tcs.training.spring.utils;
 
-public class Constants {
+public class DatabaseConstants {
 
   public static final String CLIENT_TABLE_NAME = "client";
   public static final String CLIENT_COLUMN_NAME = "name";
